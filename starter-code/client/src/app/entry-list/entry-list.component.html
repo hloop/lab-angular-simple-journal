@@ -1,0 +1,15 @@
+<div>
+  <label>Title:</label> <br>
+  <input #title type="text" name="title">
+  
+  <label>Content: </label>
+  <textarea #content type="text" id="Content" cols="30" rows="10"></textarea>
+
+
+  <button (click)="postComment(title, content)">Submit</button>
+</div>
+
+<div *ngFor = "let entry of allTheEntries">
+  <p> {{ entry.title }} @ {{ entry.date }} </p>
+  <button (click)="deleteEntry(entry._id)">Delete</button>
+</div>

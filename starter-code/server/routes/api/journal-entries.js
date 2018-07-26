@@ -32,4 +32,11 @@ router.post('/journal-entries', (req, res, next) => {
   });
 });
 
+router.post('/journal-entries/delete', (req, res, next) => {
+  Entry.findByIdAndRemove(req.body.entryID, (err, result) => {
+    if(err) { return res.json(err).status(500); }
+    return res.json(result);
+  })
+});
+
 module.exports = router;
